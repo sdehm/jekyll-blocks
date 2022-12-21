@@ -5,14 +5,20 @@ import DOMPurify from "dompurify";
 export default function (props: FolderBlockProps) {
   const { tree, onRequestGitHubData } = props;
   const content = tree.find((item) => item.path === "src/_site/index.html");
+  const cssContent = tree.find(
+    (item) => item.path === "src/_site/assets/main.css"
+  );
 
   const [sanitizedContent, setSanitizedContent] = useState<string>("");
+  const [css, setCss] = useState<string>("");
 
   const getContent = async () => {
     const file = await onRequestGitHubData(content?.url as string);
-    const file_content = file.content;
-    const sanitizedContent = DOMPurify.sanitize(atob(file_content));
+    const sanitizedContent = DOMPurify.sanitize(atob(file.content));
     setSanitizedContent(sanitizedContent);
+
+    const cssFile = await onRequestGitHubData(cssContent?.url as string);
+    setCss(atob(cssFile.content));
   };
 
   useEffect(() => {
@@ -25,6 +31,7 @@ export default function (props: FolderBlockProps) {
         padding: "25px 20px",
       }}
     >
+      <style>{css}</style>
       <div
         style={{
           all: "initial",
