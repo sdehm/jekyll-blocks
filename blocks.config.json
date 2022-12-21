@@ -16,5 +16,14 @@
     "entry": "blocks/example-folder-block.tsx",
     "matches": ["*"],
     "example_path": "https://github.com/githubocto/flat"
+  },
+  {
+    "type": "folder",
+    "id": "jekyll",
+    "title": "Jekyll",
+    "description": "Render a Jekyll site",
+    "entry": "blocks/jekyll.tsx",
+    "matches": ["*"],
+    "example_path": "https://github.com/sdehm/jekyll-blocks"
   }
 ]
