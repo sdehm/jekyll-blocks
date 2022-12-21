@@ -5,3 +5,10 @@ dist-ssr
 .yalc.lock
 .yalc
 dist
+
+# Jekyll
+_site
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+vendor
