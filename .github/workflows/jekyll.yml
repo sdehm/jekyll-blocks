@@ -29,6 +29,6 @@ jobs:
       uses: EndBug/add-and-commit@v9
       with:
         author_name: GitHub Actions
-        add: 'src/_site'
+        add: 'src/_site --force'
         default_author: github_actions
         message: 'Build Jekyll site'
