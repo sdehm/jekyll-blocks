@@ -3,14 +3,13 @@ name: Build Jekyll artifact
 on:
   push:
     branches: ["main"]
-      when:
-        paths:
-          - "src/**"
-          - ".github/workflows/jekyll.yml"
+    paths:
+      - "src/**"
+      - ".github/workflows/jekyll.yml"
   workflow_dispatch:
 
 jobs:
-  - name: Build
+  build:
     runs-on: ubuntu-latest
     defaults:
       run:
